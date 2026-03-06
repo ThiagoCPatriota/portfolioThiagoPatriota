@@ -1,133 +1,165 @@
-/* Reset básico e variáveis de cores */
+/* =========================================
+   1. VARIÁVEIS GLOBAIS (:root)
+   Centraliza cores e fontes.
+   ========================================= */
 :root {
-    --bg-color: #0d1117; /* Fundo principal (github dark mode) */
-    --surface-color: #161b22; /* Fundo dos cards */
-    --text-main: #c9d1d9; /* Texto claro */
-    --accent-color: #00ffcc; /* Verde neon tech */
-    --accent-hover: #00ccaa;
+    --cor-fundo: #0d1117; /* Fundo principal escuro */
+    --cor-superficie: #161b22; /* Fundo secundário para os cartões */
+    --texto-principal: #c9d1d9; /* Cor principal do texto */
+    --cor-destaque: #00ffcc; /* Cor de destaque (verde néon) */
+    --cor-borda: #30363d; /* Cor padrão para as linhas e bordas */
+    --fonte-principal: 'Inter', sans-serif;
+    --fonte-mono: 'Fira Code', monospace;
 }
 
+/* =========================================
+   2. RESET BÁSICO
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
+/* =========================================
+   3. ESTILOS GLOBAIS (Base do Layout)
+   ========================================= */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--texto-principal);
+    font-family: var(--fonte-principal);
+    line-height: 1.6; 
 }
 
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+.conteiner {
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
 }
 
-/* Tipografia e Textos */
+/* =========================================
+   4. TIPOGRAFIA
+   ========================================= */
 h1 {
     font-size: 4rem;
     color: #ffffff;
     margin-bottom: 10px;
 }
 
-h2.subtitle {
+.subtitulo {
     font-size: 2rem;
     color: #8b949e;
     margin-bottom: 20px;
 }
 
-.terminal-text, .section-title {
-    font-family: 'Fira Code', monospace;
-    color: var(--accent-color);
+/* AGRUPAMENTO: Fontes monoespaçadas */
+.texto-terminal, 
+.titulo-secao, 
+.botao-principal, 
+.etiqueta-habilidade {
+    font-family: var(--fonte-mono);
 }
 
-.section-title {
+/* AGRUPAMENTO: Cores de destaque */
+.texto-terminal, 
+.titulo-secao {
+    color: var(--cor-destaque);
+}
+
+.titulo-secao {
     font-size: 1.5rem;
     margin-bottom: 30px;
-    border-bottom: 1px solid #30363d;
+    border-bottom: 1px solid var(--cor-borda); 
     padding-bottom: 10px;
 }
 
-.description {
+.descricao {
     font-size: 1.2rem;
-    max-width: 600px;
+    max-width: 600px; 
     margin-bottom: 30px;
 }
 
-/* Botão Neon */
-.btn-primary {
+/* =========================================
+   5. COMPONENTES
+   ========================================= */
+
+/* --- Botão --- */
+.botao-principal {
     background: transparent;
-    color: var(--accent-color);
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--cor-destaque);
     padding: 12px 24px;
-    font-family: 'Fira Code', monospace;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.3s ease;
+    color: white;
 }
 
-.btn-primary:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 15px var(--accent-color);
+.botao-principal:hover {
+    background: var(--cor-destaque);
+    color: var(--cor-fundo); 
+    box-shadow: 10 20 15px var(--cor-destaque); 
 }
 
-/* Seção de Habilidades */
-.skills-section {
+/* --- Estrutura das Secções --- */
+.secao-habilidades, 
+.secao-projetos {
     margin-top: 80px;
 }
 
-.skills-grid {
+/* --- Habilidades --- */
+.grade-habilidades {
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+    gap: 15px; 
+
+    color: white;
 }
 
-.skill-tag {
-    background-color: var(--surface-color);
+.etiqueta-habilidade {
+    background-color: var(--cor-superficie);
     padding: 10px 20px;
-    border-radius: 20px;
-    font-family: 'Fira Code', monospace;
+    border-radius: 20px; 
     font-size: 0.9rem;
-    border: 1px solid #30363d;
+    border: 1px solid var(--cor-borda);
     transition: border-color 0.3s;
 }
 
-.skill-tag:hover {
-    border-color: var(--accent-color);
+.etiqueta-habilidade:hover {
+    border-color: var(--cor-destaque);
 }
 
-/* Vitrine de Projetos */
-.projects-section {
-    margin-top: 80px;
-}
-
-.projects-grid {
+/* --- Projetos --- */
+.grade-projetos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.project-card {
-    background-color: var(--surface-color);
+.cartao-projeto {
+    background-color: var(--cor-superficie);
     padding: 25px;
     border-radius: 8px;
-    border: 1px solid #30363d;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--cor-borda);
+    transition: transform 0.3s, box-shadow 0.3s; 
 }
 
-.project-card h4 {
+.cartao-projeto h4 {
     color: #ffffff;
     font-size: 1.3rem;
     margin-bottom: 15px;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.1);
-    border-color: var(--accent-color);
+.cartao-projeto:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.1); 
+    border-color: var(--cor-destaque);
 }
+
+.foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
