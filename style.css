@@ -35,15 +35,12 @@ h1 {
     font-size: 4rem;
     color: #ffffff;
     margin-bottom: 10px;
-    text-align: center;
-    
 }
 
 .subtitulo {
     font-size: 2rem;
     color: #8b949e;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 /* AGRUPAMENTO: Fontes monoespaçadas */
@@ -67,7 +64,6 @@ h1 {
     font-size: 1.2rem;
     max-width: 600px; 
     margin-bottom: 30px;
-    text-align: center;
 }
 
 /* =========================================
@@ -149,7 +145,7 @@ h1 {
     height: 400px;
     border-radius: 5%;
     object-fit: cover;
-    box-shadow: 0 0 35px rgba(0, 255, 204, 0.6);
+    box-shadow: 0 0 35px rgba(0, 255, 204, 0.2);
     filter: grayscale(0%) contrast(100%); /* Traz a cor de volta no hover */
     transform: scale(1.05); /* Dá um leve zoom */
 }
@@ -157,10 +153,15 @@ h1 {
 .apresentacao {
     display: flex; /* Coloca a foto e a caixa de textos lado a lado */
     align-items: center; /* Alinha tudo pelo meio na vertical */
-    gap: 40px; /* Cria o espaço entre a foto e os textos */
+    gap: 90px; /* Cria o espaço entre a foto e os textos */
     margin-top: 40px;
 
 }
+
+.textos-apresentacao {
+    max-width: 700px; /* Evita que o texto fique muito esticado num monitor gigante */
+}
+
 .botoes-apresentacao {
     display: flex; /* Coloca os botões lado a lado */
     gap: 20px; /* Cria o espaço entre os botões */
@@ -168,7 +169,7 @@ h1 {
 }
 
 .icone-habilidade{
-    width: 20px;
-    height: 20px;
-    margin-right: 8px; /* Espaço entre o ícone e o texto */
+    width: 30px;
+    height: 30px;
+    margin-right: 2px; /* Espaço entre o ícone e o texto */
 }
