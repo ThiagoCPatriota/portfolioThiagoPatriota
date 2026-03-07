@@ -47,7 +47,7 @@ h1 {
 }
 
 /* AGRUPAMENTO: Fontes monoespaçadas */
-.texto-terminal, .titulo-secao, .botao-principal, .etiqueta-habilidade {
+.texto-terminal, .titulo-secao, .botao-principal {
     font-family: var(--fonte-mono);
 }
 
@@ -103,7 +103,7 @@ h1 {
     color: white;
 }
 
-.etiqueta-habilidade {
+/* .etiqueta-habilidade {
     background-color: var(--cor-superficie);
     padding: 10px 20px;
     border-radius: 20px; 
@@ -114,7 +114,7 @@ h1 {
 
 .etiqueta-habilidade:hover {
     border-color: var(--cor-destaque);
-}
+} */
 
 /* --- Projetos --- */
 .grade-projetos {
@@ -149,7 +149,9 @@ h1 {
     height: 400px;
     border-radius: 5%;
     object-fit: cover;
-    /* Apaga o margin-bottom que tinhas aqui! */
+    box-shadow: 0 0 35px rgba(0, 255, 204, 0.6);
+    filter: grayscale(0%) contrast(100%); /* Traz a cor de volta no hover */
+    transform: scale(1.05); /* Dá um leve zoom */
 }
 
 .apresentacao {
@@ -163,4 +165,10 @@ h1 {
     display: flex; /* Coloca os botões lado a lado */
     gap: 20px; /* Cria o espaço entre os botões */
     justify-content: flex-end;
+}
+
+.icone-habilidade{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
 }
