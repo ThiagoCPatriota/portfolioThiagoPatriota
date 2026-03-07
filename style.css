@@ -230,7 +230,7 @@ h1 {
     display: flex; 
     flex-direction: column; /* Faz o título e a imagem ficarem um embaixo do outro! */
     align-items: center; /* Centraliza a imagem no meio da tela */
-    width: 30%; 
+    width: 29%; 
     
     overflow-x: auto; 
     transition: transform 0.3s, border-color 0.3s;
