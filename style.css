@@ -222,12 +222,17 @@ h1 {
 
 .grafico-github {
     background-color: var(--cor-superficie); 
-    padding: 20px;
+    padding: 10px; /* Aumentei um pouquinho o respiro interno */
     border-radius: 8px;
     border: 1px solid var(--cor-borda);
-    display: inline-block; /* Faz a caixa abraçar o tamanho exato da imagem */
-    max-width: 100%; 
-    overflow-x: auto; /* Cria uma barra de rolagem se o ecrã for muito pequeno */
+    
+    /* AS MUDANÇAS ESTÃO AQUI: */
+    display: flex; 
+    flex-direction: column; /* Faz o título e a imagem ficarem um embaixo do outro! */
+    align-items: center; /* Centraliza a imagem no meio da tela */
+    width: 30%; 
+    
+    overflow-x: auto; 
     transition: transform 0.3s, border-color 0.3s;
 }
 
