@@ -272,7 +272,7 @@ h1 {
     margin-top: 12px;
     background-color: var(--cor-borda);
     border-radius: 999px;
-    height: 15px;
+    height: 4px;
     overflow: hidden;
 }
 
@@ -348,12 +348,104 @@ h1 {
     margin-top: 15px;
 }
 
+/* =========================================
+   RESPONSIVIDADE
+   
+   768px = tablet/celular grande
+   480px = celular pequeno
+   ========================================= */
 
-/* RESPONSIVO */
-@media (max-width: 650px) {
-    nav { padding: 16px 20px; flex-direction: column; gap: 14px; }
-    .conteiner { padding: 40px 20px; }
-    h1 { font-size: 2rem; }
-    .sobre-principal { flex-direction: column; }
-    .foto-sobre { width: 130px; height: 130px; }
+@media (max-width: 768px) {
+
+    /* Botões do menu: centraliza e permite quebra */
+    .botoes-apresentacao {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* Apresentação: empilha tudo em coluna */
+    .apresentacao {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* Foto menor no mobile */
+    .foto {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Texto de apresentação centralizado */
+    .textos-apresentacao {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Título menor */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitulo {
+        font-size: 1.4rem;
+    }
+
+    /* Gráfico do GitHub: largura total */
+    .grafico-github {
+        width: 100%;
+    }
+
+    /* Seções com menos margem */
+    .secao-habilidades,
+    .secao-projetos {
+        margin-top: 50px;
+    }
+
+    /* Grade de habilidades: 1 coluna */
+    .grade-habilidades {
+        grid-template-columns: 1fr;
+    }
+
+    /* Grade de projetos: 1 coluna */
+    .grade-projetos {
+        grid-template-columns: 1fr;
+    }
+
+    /* Padding do container menor */
+    .conteiner {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitulo {
+        font-size: 1.2rem;
+    }
+
+    .descricao {
+        font-size: 1rem;
+    }
+
+    /* Botões menores */
+    .botao-principal {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    /* Foto ainda menor em celulares pequenos */
+    .foto {
+        width: 160px;
+        height: 160px;
+    }
 }
