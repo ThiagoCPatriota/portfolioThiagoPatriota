@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatos | Thiago Patriota</title>
+    <link rel="icon" href="../imgs/telaprincipal/icon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/contatos.css">
 </head>
@@ -69,7 +70,7 @@
                 </div>
                 <div class="info-contato">
                     <span>Instagram</span>
-                    <p>@thiago.patriota</p>
+                    <p>@thiagopatriotad</p>
                 </div>
                 <span class="seta">→</span>
             </a>
@@ -78,34 +79,18 @@
 
         <!-- EMAIL -->
         <div class="divisor">
-            <h2>/ email</h2>
+            <h2>/ email Disponível</h2>
             <hr>
         </div>
 
         <!-- Troque o email pelo seu real -->
         <div class="email-box">
             <p id="email-texto">thiagosilvapatriota@gmail.com</p>
-            <button class="btn-copiar" id="btn-copiar" onclick="copiarEmail()">copiar</button>
         </div>
 
     </div>
 
-    <script>
-        // Copia o email e muda o texto do botão por 2 segundos
-        function copiarEmail() {
-            const email = document.getElementById('email-texto').textContent;
-            navigator.clipboard.writeText(email);
 
-            const btn = document.getElementById('btn-copiar');
-            btn.textContent = '✓ copiado!';
-            btn.classList.add('copiado');
-
-            setTimeout(() => {
-                btn.textContent = 'copiar';
-                btn.classList.remove('copiado');
-            }, 2000);
-        }
-    </script>
 
 </body>
 </html>

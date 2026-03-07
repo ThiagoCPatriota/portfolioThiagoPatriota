@@ -205,29 +205,6 @@
             color: white;
         }
 
-        .btn-copiar {
-            background: transparent;
-            border: 1px solid var(--cor-borda);
-            color: var(--texto-principal);
-            font-family: var(--fonte-mono);
-            font-size: 0.8rem;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .btn-copiar:hover {
-            border-color: var(--cor-destaque);
-            color: var(--cor-destaque);
-        }
-
-        .btn-copiar.copiado {
-            border-color: var(--cor-destaque);
-            color: var(--cor-destaque);
-        }
-
         /* RESPONSIVO */
         @media (max-width: 600px) {
             nav { padding: 16px 20px; flex-direction: column; gap: 14px; }
