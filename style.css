@@ -73,6 +73,7 @@ h1 {
     font-size: 1.2rem;
     max-width: 600px; 
     margin-bottom: 30px;
+    text-justify: center;
 }
 
 /* =========================================
@@ -206,4 +207,38 @@ h1 {
     transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0, 255, 204, 0.1); 
     border-color: var(--cor-destaque);
+}
+
+/* --- Estatísticas do GitHub --- */
+.secao-github {
+    margin-top: 80px;
+    text-align: center; /* Centraliza o título e o cartão */
+}
+
+/* Reutilizamos o alinhamento do título para a esquerda para manter o padrão */
+.secao-github .titulo-secao {
+    text-align: left; 
+}
+
+.grafico-github {
+    background-color: var(--cor-superficie); 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    display: inline-block; /* Faz a caixa abraçar o tamanho exato da imagem */
+    max-width: 100%; 
+    overflow-x: auto; /* Cria uma barra de rolagem se o ecrã for muito pequeno */
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.grafico-github:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-destaque);
+}
+
+.grafico-github img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    justify-content: center;
 }
