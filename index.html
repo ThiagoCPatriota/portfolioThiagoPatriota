@@ -12,14 +12,21 @@
     <div class="conteiner">
         <div class="botoes-apresentacao">
             <a href="./paginas/projetos.html"><button class="botao-principal">Ver Projetos</button></a>
-            <a href="./paginas/projetos.html"><button class="botao-principal">Contatos</button></a>
-            <a href="./paginas/projetos.html"><button class="botao-principal">Sobre</button></a>
+            <!-- CORREÇÃO: os 3 botões apontavam para o mesmo link. Atualize os hrefs abaixo! -->
+            <a href="./paginas/contatos.html"><button class="botao-principal">Contatos</button></a>
+            <a href="./paginas/sobre.html"><button class="botao-principal">Sobre</button></a>
         </div>
 
         <header class="apresentacao">
             <img class="foto" src="./imgs/telaprincipal/thiagopatriota.png" alt="Foto de Thiago Patriota">
             <div class="textos-apresentacao">
-                <p class="texto-terminal">> Olá, mundo. Meu nome é</p>
+
+                <!-- NOVO: span.typing recebe a animação de digitação -->
+                <!-- NOVO: span.cursor é o bloquinho que pisca -->
+                <p class="texto-terminal">
+                    <span class="typing">> Olá, mundo. Meu nome é</span><span class="cursor">█</span>
+                </p>
+
                 <h1>Thiago Patriota</h1>
                 <h2 class="subtitulo">Desenvolvimento de Sistemas</h2>
                 <p class="descricao">Sou Estudante de Engenharia de Software e apaixonado no Desenvolvimento de jogos e soluções inovadoras.</p>
@@ -29,21 +36,23 @@
                 <h3 class="titulo-secao">/ GitHub Contribuições</h3>
                 <img src="https://github-readme-streak-stats.herokuapp.com/?user=thiagocpatriota&hide_border=true&background=161b22&ring=00ffcc&fire=00ffcc&currStreakNum=c9d1d9&sideNums=c9d1d9&currStreakLabel=00ffcc&sideLabels=c9d1d9&dates=8b949e" alt="Estatísticas de Contribuição do GitHub">
             </div>
-
         </header>
 
-        <section class="secao-habilidades">
+        <!-- NOVO: classe "fade-in-up" faz a seção aparecer suavemente ao rolar -->
+        <section class="secao-habilidades fade-in-up">
             <h3 class="titulo-secao">/ STACK's</h3>
             
             <div class="grade-habilidades">
                 
                 <article class="cartao-habilidade">
                     <img src="./imgs/telaprincipal/htmlecss.png" alt="Ícone de HTML e CSS" class="icone-habilidade">
-                    
                     <div>
                         <h4>HTML & CSS</h4>
                         <p>Crio Site Modernos e Tecnólogicos, com qualidade,<br>eficiência, alta velocidade de entrega e uma excelente experiência do usuário.</p>
-
+                        <!-- NOVO: barra de progresso animada -->
+                        <div class="barra-progresso">
+                            <div class="barra-preenchimento" style="--nivel: 80%"></div>
+                        </div>
                     </div> 
                 </article>
                 
@@ -52,6 +61,9 @@
                     <div>
                         <h4>JAVASCRIPT</h4>
                         <p>Adiciono vida e interatividade às páginas web. Construo lógicas complexas, consumo APIs e garanto uma navegação fluida e dinâmica para o usuário.</p>
+                        <div class="barra-progresso">
+                            <div class="barra-preenchimento" style="--nivel: 30%"></div>
+                        </div>
                     </div>
                 </article>
                 
@@ -60,6 +72,9 @@
                     <div>
                         <h4>PYTHON</h4>
                         <p>Focado no desenvolvimento de scripts, automação de tarefas e estruturação de lógicas de back-end, sempre prezando por um código limpo e escalável.</p>
+                        <div class="barra-progresso">
+                            <div class="barra-preenchimento" style="--nivel: 70%"></div>
+                        </div>
                     </div>
                 </article>
                 
@@ -68,13 +83,17 @@
                     <div>
                         <h4>C#</h4>
                         <p>Aplicado no desenvolvimento de jogos 2D. Utilizo orientação a objetos para criar sistemas de progressão, mecânicas complexas e lógicas de gameplay.</p>
+                        <div class="barra-progresso">
+                            <div class="barra-preenchimento" style="--nivel: 5%"></div>
+                        </div>
                     </div>
                 </article>
 
             </div>
         </section>
 
-        <section class="secao-projetos">
+        <!-- NOVO: fade-in-up com delay para aparecer depois da seção anterior -->
+        <section class="secao-projetos fade-in-up" style="--delay: 0.2s">
             <h3 class="titulo-secao">/ Projetos em Destaque!</h3>
             <div class="grade-projetos">
                 
@@ -93,7 +112,7 @@
                     <p>O Projeto que nós levou aos Top 10 de Pernambuco na NASA Space Apps Challenge de 2025.</p>
                     <p>
                         Após o sucesso do ano passado, estamos trabalhando para melhorar nossos projetos existentes
-                        e desenvolver novas funcionalidades, como a realidade aumenta dentro
+                        e desenvolver novas funcionalidades, como a realidade aumentada.
                     </p>
                     <img src="./imgs/telaprincipal/astroposeequipe.jpg" alt="Equipe do Projeto AstroPose" class="imagem-projeto">
                 </article>
@@ -101,16 +120,39 @@
                 <article class="cartao-projeto">
                     <h4>Animus ⭐</h4>
                     <p>
-                        A Animus Oferece inúmeras soluções, e deles é um projeto inovador que utiliza inteligência artificial para analisar
-                        e interpretar posturas corporais. Ele é projetado para fornecer feedback em tempo real sobre a postura, ajudando
-                        os usuários a melhorar sua saúde e bem-estar. O sistema pode ser aplicado em diversas áreas, como fitness, ergonomia e reabilitação,
-                        oferecendo insights personalizados para promover uma vida mais saudável.
+                        A Animus oferece inúmeras soluções: um projeto inovador que utiliza inteligência artificial para analisar
+                        e interpretar posturas corporais. Projetado para fornecer feedback em tempo real sobre a postura, ajudando
+                        os usuários a melhorar sua saúde e bem-estar.
                     </p>
-                    <img src="./imgs/telaprincipal/animustech.png" alt="Equipe do Projeto AstroPose" class="imagem-projeto">
+                    <img src="./imgs/telaprincipal/animustech.png" alt="Equipe do Projeto Animus" class="imagem-projeto">
                 </article>
 
             </div>     
         </section>
     </div>
+
+    <!-- =============================================
+         JAVASCRIPT: Animação de fade-in ao rolar
+         
+         IntersectionObserver é uma API moderna do navegador.
+         Ele "observa" elementos e avisa quando eles entram
+         na área visível da tela (viewport).
+         
+         Quando o elemento aparece, adicionamos a classe
+         "visible" que ativa a transição no CSS.
+    ============================================== -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 }); // Ativa quando 10% do elemento está visível
+
+        // Seleciona todos os elementos com a classe fade-in-up e os observa
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    </script>
+
 </body>
 </html>

@@ -1,13 +1,12 @@
 /* =========================================
    1. VARIÁVEIS GLOBAIS (:root)
-   Centraliza cores e fontes.
    ========================================= */
 :root {
-    --cor-fundo: #0d1117; /* Fundo principal escuro */
-    --cor-superficie: #161b22; /* Fundo secundário para os cartões */
-    --texto-principal: #c9d1d9; /* Cor principal do texto */
-    --cor-destaque: #00ffcc; /* Cor de destaque (verde néon) */
-    --cor-borda: #30363d; /* Cor padrão para as linhas e bordas */
+    --cor-fundo: #0d1117;
+    --cor-superficie: #161b22;
+    --texto-principal: #c9d1d9;
+    --cor-destaque: #00ffcc;
+    --cor-borda: #30363d;
     --fonte-principal: 'Inter', sans-serif;
     --fonte-mono: 'Fira Code', monospace;
 }
@@ -22,10 +21,17 @@
 }
 
 /* =========================================
-   3. ESTILOS GLOBAIS (Base do Layout)
+   3. ESTILOS GLOBAIS
+   
+   NOVO: background-image com radial-gradient
+   cria uma grade de pontinhos sutil.
+   Isso dá aquela vibe de papel quadriculado
+   dev/terminal sem poluir visualmente.
    ========================================= */
 body {
     background-color: var(--cor-fundo);
+    background-image: radial-gradient(circle, #21262d 1px, transparent 1px);
+    background-size: 35px 35px;
     color: var(--texto-principal);
     font-family: var(--fonte-principal);
     line-height: 1.6; 
@@ -40,10 +46,20 @@ body {
 /* =========================================
    4. TIPOGRAFIA
    ========================================= */
+
+/* NOVO: @keyframes glow - anima o text-shadow do h1
+   "alternate" faz a animação ir e voltar suavemente.
+   Dá o efeito de nome "pulsando" com luz neon. */
+@keyframes glow {
+    from { text-shadow: 0 0 5px rgba(0, 255, 204, 0.1); }
+    to   { text-shadow: 0 0 25px rgba(0, 255, 204, 0.4), 0 0 50px rgba(0, 255, 204, 0.15); }
+}
+
 h1 {
     font-size: 4rem;
     color: #ffffff;
     margin-bottom: 10px;
+    animation: glow 3s ease-in-out infinite alternate;
 }
 
 .subtitulo {
@@ -52,12 +68,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* AGRUPAMENTO: Fontes monoespaçadas */
 .texto-terminal, .titulo-secao, .botao-principal {
     font-family: var(--fonte-mono);
 }
 
-/* AGRUPAMENTO: Cores de destaque */
 .texto-terminal, .titulo-secao {
     color: var(--cor-destaque);
 }
@@ -73,11 +87,77 @@ h1 {
     font-size: 1.2rem;
     max-width: 600px; 
     margin-bottom: 30px;
-    text-justify: center;
 }
 
 /* =========================================
-   5. COMPONENTES E SECÇÕES
+   5. ANIMAÇÃO DE DIGITAÇÃO (TYPING)
+   
+   Como funciona:
+   - "overflow: hidden" esconde o texto que ainda
+     não foi "digitado"
+   - "white-space: nowrap" impede quebra de linha
+   - "width: 0" começa sem largura nenhuma
+   - O @keyframes "typing" vai de width: 0 até
+     o comprimento total do texto em "ch" (unidade
+     de caractere da fonte monospace)
+   - "steps(N)" faz a animação pular em N passos
+     discretos, imitando teclas sendo pressionadas.
+     N deve ser igual ao número de caracteres do texto.
+   - "forwards" mantém o estado final da animação
+   ========================================= */
+@keyframes typing {
+    from { width: 0; }
+    to   { width: 26ch; } /* 26 = quantidade de caracteres do texto */
+}
+
+/* NOVO: animação do cursor piscante */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 2.5s steps(26, end) 0.5s forwards;
+    /* 0.5s de delay para começar após a página carregar */
+}
+
+.cursor {
+    display: inline-block;
+    color: var(--cor-destaque);
+    font-family: var(--fonte-mono);
+    animation: blink 0.8s step-end infinite;
+    vertical-align: middle;
+}
+
+/* =========================================
+   6. ANIMAÇÃO DE FADE-IN AO ROLAR
+   
+   Estado inicial: invisível e deslocado 30px pra baixo.
+   Quando o JS adiciona a classe "visible",
+   a transition suaviza a mudança para opacity:1
+   e transform:translateY(0).
+   
+   A variável "--delay" permite definir um atraso
+   diferente por elemento (ex: style="--delay: 0.2s")
+   ========================================= */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease var(--delay, 0s),
+                transform 0.7s ease var(--delay, 0s);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   7. COMPONENTES E SEÇÕES
    ========================================= */
 
 /* --- Botões do Menu Superior --- */
@@ -101,7 +181,7 @@ h1 {
 .botao-principal:hover {
     background: var(--cor-destaque);
     color: var(--cor-fundo); 
-    box-shadow: 0 0 15px var(--cor-destaque); 
+    box-shadow: 0 0 20px var(--cor-destaque); 
 }
 
 /* --- Apresentação (Foto e Texto) --- */
@@ -118,8 +198,15 @@ h1 {
     border-radius: 5%;
     object-fit: cover;
     box-shadow: 0 0 35px rgb(126, 177, 179);
+    /* NOVO: leve animação de flutuação na foto */
+    animation: float 5s ease-in-out infinite;
 }
 
+/* NOVO: animação de flutuação suave */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+}
 
 .textos-apresentacao {
     max-width: 700px; 
@@ -142,7 +229,7 @@ h1 {
     border-radius: 8px;
     border: 1px solid var(--cor-borda);
     display: flex;
-    align-items: flex-start; /* Alinha o ícone e o texto pelo topo */
+    align-items: flex-start;
     gap: 20px; 
     transition: transform 0.3s, border-color 0.3s;
 }
@@ -152,30 +239,50 @@ h1 {
     border-color: var(--cor-destaque);
 }
 
+.cartao-habilidade h4 {
+    color: var(--cor-destaque);
+    font-family: var(--fonte-mono);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
 .icone-habilidade {
     width: 40px; 
     height: 40px;
     object-fit: contain;
-    flex-shrink: 0; /* Impede que o navegador encolha a imagem */
+    flex-shrink: 0;
 }
 
-.texto-habilidade {
-    flex: 1; /* Manda o texto ocupar o espaço livre */
-    text-align: left; 
+/* =========================================
+   NOVO: BARRA DE PROGRESSO
+   
+   A variável CSS "--nivel" é definida inline no HTML
+   (ex: style="--nivel: 85%"). Isso permite que cada
+   barra tenha um tamanho diferente com apenas UMA
+   regra de CSS.
+   
+   @keyframes "fill" anima a largura de 0 até --nivel.
+   ========================================= */
+@keyframes fill {
+    from { width: 0; }
+    to   { width: var(--nivel); }
 }
 
-.texto-habilidade h4 {
-    color: var(--cor-destaque); 
-    font-family: var(--fonte-mono); 
-    font-size: 1.1rem;
-    margin-bottom: 8px; 
+.barra-progresso {
+    margin-top: 12px;
+    background-color: var(--cor-borda);
+    border-radius: 999px;
+    height: 15px;
+    overflow: hidden;
 }
 
-.texto-habilidade p {
-    font-family: var(--fonte-principal); 
-    font-size: 0.95rem; 
-    color: var(--texto-principal);
-    line-height: 1.5; 
+.barra-preenchimento {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cor-destaque), #00ccff);
+    border-radius: 999px;
+    width: 0; /* começa zerado */
+    animation: fill 1.2s ease-out 0.5s forwards;
+    box-shadow: 0 0 8px var(--cor-destaque);
 }
 
 /* --- Projetos --- */
@@ -194,7 +301,7 @@ h1 {
     padding: 25px;
     border-radius: 8px;
     border: 1px solid var(--cor-borda);
-    transition: transform 0.3s, box-shadow 0.3s; 
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; 
 }
 
 .cartao-projeto h4 {
@@ -205,33 +312,20 @@ h1 {
 
 .cartao-projeto:hover {
     transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.1); 
+    box-shadow: 0 10px 30px rgba(0, 255, 204, 0.15); 
     border-color: var(--cor-destaque);
 }
 
-/* --- Estatísticas do GitHub --- */
-.secao-github {
-    margin-top: 80px;
-    text-align: center; /* Centraliza o título e o cartão */
-}
-
-/* Reutilizamos o alinhamento do título para a esquerda para manter o padrão */
-.secao-github .titulo-secao {
-    text-align: left; 
-}
-
+/* --- GitHub Contribuições --- */
 .grafico-github {
     background-color: var(--cor-superficie); 
-    padding: 10px; /* Aumentei um pouquinho o respiro interno */
+    padding: 10px;
     border-radius: 8px;
     border: 1px solid var(--cor-borda);
-    
-    /* AS MUDANÇAS ESTÃO AQUI: */
     display: flex; 
-    flex-direction: column; /* Faz o título e a imagem ficarem um embaixo do outro! */
-    align-items: center; /* Centraliza a imagem no meio da tela */
+    flex-direction: column;
+    align-items: center;
     width: 29%; 
-    
     overflow-x: auto; 
     transition: transform 0.3s, border-color 0.3s;
 }
@@ -245,7 +339,6 @@ h1 {
     max-width: 100%;
     height: auto;
     display: block;
-    justify-content: center;
 }
 
 .imagem-projeto {
