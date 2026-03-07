@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | Thiago Patriota</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../estilos/projetos.css">
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html" class="nav-logo">&lt;ThiagoPatriota /&gt;</a>
+        <div class="nav-links">
+            <a href="projetos.html" class="btn ativo">Ver Projetos</a>
+            <a href="contatos.html" class="btn">Contatos</a>
+            <a href="sobre.html" class="btn">Sobre</a>
+        </div>
+    </nav>
+
+    <div class="conteiner">
+
+        <div class="cabecalho">
+            <p class="texto-terminal">> carregando projetos...<span class="cursor">█</span></p>
+            <h1>Meus Projetos</h1>
+            <p class="subtexto">Uma coleção dos projetos que desenvolvi — de educação tecnológica a inteligência artificial.</p>
+        </div>
+
+        <div class="filtros">
+            <button class="filtro ativo" data-filtro="todos">Todos</button>
+            <button class="filtro" data-filtro="web">Web</button>
+            <button class="filtro" data-filtro="ia">IA / ML</button>
+            <button class="filtro" data-filtro="educacao">Educação</button>
+            <button class="filtro" data-filtro="jogo">Jogos</button>
+        </div>
+
+        <div class="grade" id="grade">
+
+            <article class="cartao" data-categoria="educacao web">
+                <img src="../imgs/telaprincipal/turma2jovemdev.jpg" alt="Jovem DEV">
+                <div class="cartao-corpo">
+                    <div class="cartao-topo">
+                        <h3>Jovem DEV</h3>
+                        <div class="cartao-tags">
+                            <span class="tag">Educação</span>
+                            <span class="tag">Web</span>
+                        </div>
+                    </div>
+                    <p>Projeto de educação tecnológica que capacita jovens com habilidades de programação através de cursos, workshops e mentorias.</p>
+                    <div class="cartao-rodape">
+                        <div class="badges">
+                            <span class="badge">Python</span>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao" data-categoria="ia">
+                <img src="../imgs/telaprincipal/astroposeequipe.jpg" alt="AstroPose">
+                <div class="cartao-corpo">
+                    <div class="cartao-topo">
+                        <h3>AstroPose</h3>
+                        <div class="cartao-tags">
+                            <span class="tag ouro">🏆 Top 10 PE</span>
+                            <span class="tag">IA / ML</span>
+                        </div>
+                    </div>
+                    <p>Projeto que nos levou aos Top 10 de Pernambuco na NASA Space Apps Challenge 2025. Visão computacional aplicada a posturas corporais.</p>
+                    <div class="cartao-rodape">
+                        <div class="badges">
+                            <span class="badge">HTML</span>
+                            <span class="badge">CSS</span>
+                            <span class="badge">JS</span>
+                        </div>
+                        <a href="https://github.com/ThiagoCPatriota/astroposeDecember" class="link-projeto">Ver projeto →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao" data-categoria="ia web">
+                <img src="../imgs/telaprincipal/animustech.png" alt="Animus">
+                <div class="cartao-corpo">
+                    <div class="cartao-topo">
+                        <h3>Animus</h3>
+                        <div class="cartao-tags">
+                            <span class="tag">IA / ML</span>
+                            <span class="tag">Web</span>
+                        </div>
+                    </div>
+                    <p>IA para análise de posturas corporais em tempo real. Aplicável em fitness, ergonomia e reabilitação com insights personalizados.</p>
+                    <div class="cartao-rodape">
+                        <div class="badges">
+                            <span class="badge">Python</span>
+                            <span class="badge">IA</span>
+                            <span class="badge">JS</span>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+            <article class="cartao" data-categoria="jogo">
+                <div class="placeholder-img">[ em desenvolvimento ]</div>
+                <div class="cartao-corpo">
+                    <div class="cartao-topo">
+                        <h3>Projeto Jogo 2D</h3>
+                        <div class="cartao-tags">
+                            <span class="tag">Jogos</span>
+                        </div>
+                    </div>
+                    <p>Novo jogo 2D em desenvolvimento com Unity e C#. Fique ligado para novidades em breve!</p>
+                    <div class="cartao-rodape">
+                        <div class="badges">
+                            <span class="badge">C#</span>
+                            <span class="badge">Unity</span>
+                        </div>
+                        <span class="link-projeto off">em breve</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.filtro').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filtro').forEach(b => b.classList.remove('ativo'));
+                btn.classList.add('ativo');
+                const f = btn.dataset.filtro;
+                document.querySelectorAll('.cartao').forEach(c => {
+                    c.style.display = (f === 'todos' || c.dataset.categoria.includes(f)) ? 'flex' : 'none';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
