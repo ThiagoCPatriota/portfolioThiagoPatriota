@@ -13,15 +13,6 @@
 }
 
 /* =========================================
-   2. RESET BÁSICO
-   ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-}
-
-/* =========================================
    3. ESTILOS GLOBAIS (Base do Layout)
    ========================================= */
 body {
@@ -32,9 +23,9 @@ body {
 }
 
 .conteiner {
-    max-width: 1000px; 
+    max-width: 1500px; 
     margin: 0 auto; 
-    padding: 40px 20px; 
+    padding: 40px 10px; 
 }
 
 /* =========================================
@@ -44,25 +35,24 @@ h1 {
     font-size: 4rem;
     color: #ffffff;
     margin-bottom: 10px;
+    text-align: center;
+    
 }
 
 .subtitulo {
     font-size: 2rem;
     color: #8b949e;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /* AGRUPAMENTO: Fontes monoespaçadas */
-.texto-terminal, 
-.titulo-secao, 
-.botao-principal, 
-.etiqueta-habilidade {
+.texto-terminal, .titulo-secao, .botao-principal, .etiqueta-habilidade {
     font-family: var(--fonte-mono);
 }
 
 /* AGRUPAMENTO: Cores de destaque */
-.texto-terminal, 
-.titulo-secao {
+.texto-terminal, .titulo-secao {
     color: var(--cor-destaque);
 }
 
@@ -77,6 +67,7 @@ h1 {
     font-size: 1.2rem;
     max-width: 600px; 
     margin-bottom: 30px;
+    text-align: center;
 }
 
 /* =========================================
@@ -93,6 +84,7 @@ h1 {
     border-radius: 4px;
     transition: all 0.3s ease;
     color: white;
+    align-items: flex-end;
 }
 
 .botao-principal:hover {
@@ -101,11 +93,7 @@ h1 {
     box-shadow: 10 20 15px var(--cor-destaque); 
 }
 
-/* --- Estrutura das Secções --- */
-.secao-habilidades, 
-.secao-projetos {
-    margin-top: 80px;
-}
+
 
 /* --- Habilidades --- */
 .grade-habilidades {
@@ -155,11 +143,24 @@ h1 {
     border-color: var(--cor-destaque);
 }
 
+
 .foto {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    border-radius: 5%;
     object-fit: cover;
-    margin-bottom: 30px;
+    /* Apaga o margin-bottom que tinhas aqui! */
 }
 
+.apresentacao {
+    display: flex; /* Coloca a foto e a caixa de textos lado a lado */
+    align-items: center; /* Alinha tudo pelo meio na vertical */
+    gap: 40px; /* Cria o espaço entre a foto e os textos */
+    margin-top: 40px;
+
+}
+.botoes-apresentacao {
+    display: flex; /* Coloca os botões lado a lado */
+    gap: 20px; /* Cria o espaço entre os botões */
+    justify-content: flex-end;
+}
