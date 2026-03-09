@@ -1,6 +1,3 @@
-/* =========================================
-   1. VARIÁVEIS GLOBAIS (:root)
-   ========================================= */
 :root {
     --cor-fundo: #0d1117;
     --cor-superficie: #161b22;
@@ -11,26 +8,15 @@
     --fonte-mono: 'Fira Code', monospace;
 }
 
-/* =========================================
-   2. RESET BÁSICO
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
 }
 
-/* =========================================
-   3. ESTILOS GLOBAIS
-   
-   NOVO: background-image com radial-gradient
-   cria uma grade de pontinhos sutil.
-   Isso dá aquela vibe de papel quadriculado
-   dev/terminal sem poluir visualmente.
-   ========================================= */
 body {
     background-color: var(--cor-fundo);
-    background-image: radial-gradient(circle, #21262d 1px, transparent 1px);
+    background-image: radial-gradient(circle, #444141 1px, transparent 1px);
     background-size: 35px 35px;
     color: var(--texto-principal);
     font-family: var(--fonte-principal);
@@ -38,20 +24,13 @@ body {
 }
 
 .conteiner {
-    max-width: 1600px; 
-    margin: 0 auto; 
+    max-width: 1700px; 
+    margin:  20px auto; 
     padding: 40px 10px; 
 }
 
-/* =========================================
-   4. TIPOGRAFIA
-   ========================================= */
-
-/* NOVO: @keyframes glow - anima o text-shadow do h1
-   "alternate" faz a animação ir e voltar suavemente.
-   Dá o efeito de nome "pulsando" com luz neon. */
 @keyframes glow {
-    from { text-shadow: 0 0 5px rgba(0, 255, 204, 0.1); }
+    from { text-shadow: 0 0 5px rgba(12, 90, 74, 0.1); }
     to   { text-shadow: 0 0 25px rgba(0, 255, 204, 0.4), 0 0 50px rgba(0, 255, 204, 0.15); }
 }
 
@@ -87,30 +66,14 @@ h1 {
     font-size: 1.2rem;
     max-width: 600px; 
     margin-bottom: 30px;
+    text-align: justify;
 }
 
-/* =========================================
-   5. ANIMAÇÃO DE DIGITAÇÃO (TYPING)
-   
-   Como funciona:
-   - "overflow: hidden" esconde o texto que ainda
-     não foi "digitado"
-   - "white-space: nowrap" impede quebra de linha
-   - "width: 0" começa sem largura nenhuma
-   - O @keyframes "typing" vai de width: 0 até
-     o comprimento total do texto em "ch" (unidade
-     de caractere da fonte monospace)
-   - "steps(N)" faz a animação pular em N passos
-     discretos, imitando teclas sendo pressionadas.
-     N deve ser igual ao número de caracteres do texto.
-   - "forwards" mantém o estado final da animação
-   ========================================= */
 @keyframes typing {
     from { width: 0; }
-    to   { width: 26ch; } /* 26 = quantidade de caracteres do texto */
+    to   { width: 26ch; } 
 }
 
-/* NOVO: animação do cursor piscante */
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
@@ -122,13 +85,10 @@ h1 {
     white-space: nowrap;
     width: 0;
     animation: typing 2.5s steps(26, end) 0.5s forwards;
-    /* 0.5s de delay para começar após a página carregar */
 }
 
 .cursor {
-    display: inline-block;
     color: var(--cor-destaque);
-    font-family: var(--fonte-mono);
     animation: blink 0.8s step-end infinite;
     vertical-align: middle;
 }
