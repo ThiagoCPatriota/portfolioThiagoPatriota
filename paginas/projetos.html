@@ -7,6 +7,7 @@
     <link rel="icon" href="../imgs/telaprincipal/icon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/projetos.css">
+    <script src="../modulos/script.js" defer></script>
 </head>
 <body>
 
@@ -189,18 +190,7 @@
         </div>
     </div>
 
-    <script>
-        document.querySelectorAll('.filtro').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filtro').forEach(b => b.classList.remove('ativo'));
-                btn.classList.add('ativo');
-                const f = btn.dataset.filtro;
-                document.querySelectorAll('.cartao').forEach(c => {
-                    c.style.display = (f === 'todos' || c.dataset.categoria.includes(f)) ? 'flex' : 'none';
-                });
-            });
-        });
-    </script>
+
 
 </body>
 </html>

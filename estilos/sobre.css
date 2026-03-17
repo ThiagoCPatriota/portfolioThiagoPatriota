@@ -205,11 +205,6 @@
             margin-bottom: 4px;
         }
 
-        .evento-corpo p {
-            font-size: 0.9rem;
-            color: #8b949e;
-        }
-
         /* RESPONSIVO */
         @media (max-width: 650px) {
             nav { padding: 16px 20px; flex-direction: column; gap: 14px; }
