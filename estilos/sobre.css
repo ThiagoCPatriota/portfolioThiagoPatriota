@@ -178,17 +178,6 @@
             position: relative;
         }
 
-        /* linha vertical conectando os eventos */
-        .evento:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 28px;
-            bottom: -1px;
-            width: 1px;
-            background: var(--cor-borda);
-        }
-
         .evento-ponto {
             width: 11px;
             height: 11px;
