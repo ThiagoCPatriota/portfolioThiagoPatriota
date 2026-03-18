@@ -315,6 +315,13 @@ h1 {
    480px = celular pequeno
    ========================================= */
 
+
+.link-jovem {
+    text-decoration: none;
+    color: #BEC7CE;
+}
+
+
 @media (max-width: 768px) {
 
     /* Botões do menu: centraliza e permite quebra */
