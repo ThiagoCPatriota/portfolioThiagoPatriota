@@ -130,8 +130,9 @@ h1 {
     border: 1px solid var(--cor-borda);
     display: flex; 
     align-items: flex-start; 
-    gap: 20px; 
+    gap: 30px; 
     transition: transform 0.3s, border-color 0.3s;
+    flex-direction: column;
 }
 
 .cartao-habilidade:hover { 
@@ -190,7 +191,9 @@ h1 {
     padding: 25px; 
     border-radius: 8px; 
     border: 1px solid var(--cor-borda); 
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; 
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    width: 550px;
+    height: 650px;
 }
 
 .cartao-projeto h4 { 
