@@ -187,13 +187,11 @@ h1 {
 }
 
 .cartao-projeto { 
-    background-color: var(--cor-superficie); 
+
     padding: 25px; 
     border-radius: 8px; 
     border: 1px solid var(--cor-borda); 
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    width: 550px;
-    height: 650px;
 }
 
 .cartao-projeto h4 { 
