@@ -118,11 +118,3 @@ h1 {
     border: none;
     border-top: 1px solid var(--cor-borda);
 }
-
-@media (max-width: 650px) {
-    nav {
-        padding: 16px 20px;
-        flex-direction: column;
-        gap: 14px;
-    }
-}
